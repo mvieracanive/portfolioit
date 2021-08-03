@@ -1,0 +1,32 @@
+@import "./vars";
+@import "./content-examples";
+@import "./content-about";
+
+.Content {
+  margin-top: calc(
+    #{$header_full_height} + #{$nav_height} + #{$keywords_banner_height}
+  );
+  padding: 0;
+  display: block;
+  text-align: left;
+  margin: 0;
+}
+
+.ContentWithMargin {
+  margin-top: calc(
+    #{$header_full_height} + #{$nav_height} + #{$keywords_banner_height}
+  );
+}
+.ContentWithSmallMargin {
+  margin-top: calc(#{$header_small_height} + #{$nav_height} + 30px);
+}
+
+.CaptchaContainer {
+  > div {
+    width: 100%;
+    margin: 8px;
+  }
+  .CaptchaError {
+    border-bottom: 2px solid red;
+  }
+}

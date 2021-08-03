@@ -1,0 +1,29 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./vars";
+@import "./template";
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+}
+
+.InlineFlexContainer {
+  display: inline-flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.Clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}

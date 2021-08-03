@@ -1,0 +1,21 @@
+@import "./vars";
+@import "./main-menu";
+@import "./header";
+@import "./content";
+
+body {
+  background-color: $color_background_body;
+}
+.Footer {
+  background: linear-gradient(45deg, $color1 50%, $color2 50%);
+  text-align: right;
+  margin-top: 30px;
+  //width: 100%;
+  padding: 10px;
+  padding-right: 30px;
+  > p {
+    font-size: 9pt;
+    //font-style: italic;
+    margin: 0;
+  }
+}

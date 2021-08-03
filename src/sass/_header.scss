@@ -1,0 +1,97 @@
+@import "./vars";
+
+.Header {
+  position: fixed;
+  top: $nav_height;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: height 0.7s;
+}
+
+header {
+  background: url("../images/H5.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  display: block;
+  height: $header_full_height;
+  transition: height 0.7s;
+}
+
+.Smaller > header {
+  height: $header_small_height;
+}
+
+@keyframes appearMoveLeftAnimation {
+  0% {
+    opacity: 0%;
+    margin-left: 40px;
+  }
+  100% {
+    opacity: 100%;
+    margin-left: 0px;
+  }
+}
+
+.Logo {
+  display: inline-flex;
+  color: white;
+  margin: 0;
+  font-size: 28pt;
+  height: $header_full_height;
+  padding: 0;
+  padding-top: calc(#{$header_full_height} - 3em - 10px);
+  transition: padding-top 0.7s;
+  animation-name: appearMoveLeftAnimation;
+  animation-duration: 2s;
+
+  .Portfolio {
+    h1 {
+      line-height: 3em;
+      margin: 0;
+      font-size: 28pt;
+      /* top | right | bottom | left */
+      padding: 0 0.5em 0 1em;
+      background-color: $color1_opacity;
+      text-shadow: 0.1em 0.03em 3px #5a5959;
+      transition: font-size 0.7s;
+    }
+  }
+
+  .Name {
+    width: 100%;
+    padding: 40px 0 0 0;
+    h2 {
+      font-size: 24pt;
+      line-height: 2em;
+      margin: 0;
+      padding: 0 1em 0 0.5em;
+      background-color: $color2_opacity;
+      text-shadow: 0.1em 0.03em 3px #5a5959;
+      transition: font-size 0.7s;
+    }
+  }
+}
+
+.Smaller > header .Logo {
+  font-size: 22pt;
+  height: $header_small_height;
+  padding-top: calc(#{$header_small_height} - 3em - 10px);
+  .Portfolio {
+    h1 {
+      font-size: 22pt;
+    }
+  }
+
+  .Name {
+    width: 100%;
+    padding: 40px 0% 0 0;
+    h2 {
+      font-size: 15pt;
+    }
+  }
+}

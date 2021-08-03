@@ -1,0 +1,16 @@
+export const Examples = [
+    {
+        heading: 'Nest Module for document',
+        text: 'This modules assist programmers to have a document manager ready to handle any type of files',
+        code: 1,
+        github: 'https://github.com/mvieracanive/itprofile',
+        keywords: [Keys.React]
+    },
+    {
+        heading: 'Java Module for document',
+        text: 'This modules assist programmers to have a document manager ready to handle any type of files',
+        code: 0,
+        github: 'https://github.com/mvieracanive/itprofile',
+        keywords: [Keys.Java, Keys.Nest]
+    },
+];

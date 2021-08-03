@@ -1,0 +1,46 @@
+.About {
+  margin: 20px;
+  > p {
+    text-align: justify;
+    padding: 10px;
+  }
+}
+.Photo {
+  width: 70px;
+  float: left;
+  margin: 15px;
+  border-width: 5px;
+  border-style: double;
+  border-color: rgb(230, 230, 230);
+  border-radius: 50px 50px 50px 50px;
+}
+
+.CertificateList {
+  //margin: 2%;
+  > div {
+    padding: 10px;
+    display: inline-flex;
+    margin: 0 auto;
+
+    > .CertificateImg {
+      padding: 0;
+      width: 2em;
+      height: 2em;
+      display: inline;
+      filter: contrast(100%);
+      -webkit-filter: contrast(100%);
+      margin: auto 0;
+      border: 1px ridge rgb(175, 175, 175);
+      box-shadow: 2px 2px 5px rgba(158, 155, 155, 0.5);
+      z-index: inherit;
+      &:hover {
+        transform: scale(10);
+      }
+      transition: transform 0.6s;
+    }
+    > .CertificateTitle {
+      padding: 10px;
+      margin: auto 0;
+    }
+  }
+}

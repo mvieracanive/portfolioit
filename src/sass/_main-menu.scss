@@ -1,0 +1,32 @@
+@import "./vars";
+.MainMenu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $nav_height;
+  background-color: $color_second_banner;
+  display: flexbox;
+  padding: 25px;
+  box-shadow: 0 3px 4px 0 rgba(255, 255, 255, 0.4%);
+}
+
+.MainMenuAccess {
+  display: inline;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1.2vw;
+  //border-radius: 3px;
+  background-color: none;
+  transition: background-color 0.2s;
+  transition: border-bottom 2s;
+  text-shadow: 2px 2px 1px rgba(199, 197, 197, 0.7);
+  border-bottom: none;
+  &:hover {
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    //background-color: rgba(218, 216, 216, 0.2);
+  }
+  &:active {
+    cursor: pointer;
+    background-color: rgba(218, 216, 216, 0.3);
+  }
+}
