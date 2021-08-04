@@ -110,9 +110,8 @@ function Code(props){
   if (!props.code)
     return null
   return <p className='CodeExample'>
-      {props.code}
-    </p>
-  
+        {props.code}
+      </p>;  
 }
 function GitHub(props){
   if (!props.ex.github)
@@ -151,6 +150,6 @@ function Image(props){
   if (!props.img)
     return null;
   return <div className='ImageExample'>
-      <img src={props.img} height = '300px' ></img>
+      <img src={props.img} width = '80%' ></img>
     </div>
 }

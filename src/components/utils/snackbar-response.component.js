@@ -1,7 +1,7 @@
 import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import { TimerSharp } from '@material-ui/icons';
+import { ThreeSixtySharp, TimerSharp } from '@material-ui/icons';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -12,8 +12,7 @@ export class  SnackbarResponse extends React.Component {
     super(props);
 
     this.state = {
-      open: props.open,
-      clickClose: false
+      open: props.open
     }
 
     this.handleClose = this.handleClose.bind(this);
@@ -27,21 +26,21 @@ export class  SnackbarResponse extends React.Component {
   };
 
   render(){
+    console.log('SNACKBAR RENDER ', this.state);
     return (     
-        <Snackbar open={this.state.open} autoHideDuration={2000} onClose={this.handleClose}>
+        <Snackbar 
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+          open={this.state.open} 
+          autoHideDuration={2000} 
+          onClose={this.handleClose}
+        >
           <Alert onClose={this.handleClose} severity={this.props.severity}>
             {this.props.msg}
           </Alert>
         </Snackbar>
     );
-  } 
-  
-  shouldComponentUpdate(nextprops, nextstate){
-    console.log('Snackbar shouldComponentUpdate', this.state.open);
-    if (this.state.open != nextprops.open){
-      this.setState({open: nextprops.open});
-      return false;
-    }
-    return true;
-  }
+  }   
 }

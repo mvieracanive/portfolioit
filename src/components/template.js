@@ -18,8 +18,6 @@ export class Template extends React.Component{
     }
 
     funShowResponse(msg){
-        //const text = await asyncHandle(...args);
-        //console.log(text);
         this.responseMsg = msg;
         this.setState({content_id: 'response'});
     }

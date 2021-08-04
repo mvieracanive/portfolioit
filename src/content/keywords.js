@@ -2,7 +2,7 @@ import noimg from '../no-image-icon-23485.png';
 
 export const keywords = {
     Java: 'Java',
-    React: 'React',
+    React: 'ReactJS',
     Nest: 'NestJS',
     MaterialUI: 'Material UI',
     Bootstrap: 'Bootstrap',

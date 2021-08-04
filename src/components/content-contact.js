@@ -59,7 +59,7 @@ export class Contact extends React.Component{
             execute: null,                
             forceValidation: false,
         });
-        console.log('handleResponse', this.executionMsg);
+        console.log('HANDLE RESPONSE', this.state);
     }
     handleInformValidity(component, state){
         this.valid[component] = state;     
@@ -99,35 +99,30 @@ export class Contact extends React.Component{
         this.valid.forEach(element => {
             valid = valid && element;
             if (!valid){
-                this.setState({validationErrors: 'Please check information, there are unsupported input data.'})
                 return;
             }
         });
-        if (this.state.captchaNeeded == null){
+        const needCaptcha = this.state.captchaNeeded == null || this.state.captchaNeeded != '';
+        if (needCaptcha){
             this.setState({captchaNeeded: 'Please I need you to tell me you are not a bot.'});
         }
-        valid = valid && !this.state.captchaNeeded;
-        console.log('handleclic antes de captcha', valid);
+        valid = valid && true;//!needCaptcha;
+        console.log('1 HANDLE CLICK ', this.state);
         if (!valid){
             this.setState({forceValidation: true});
             return;
         }
+        console.log('2 HANDLE CLICK ', this.state);
         console.log('paso validacion de captcha')
         if (valid){
             this.setState({execute: true});
-        }          
+        }     
+        console.log('END HANDLE CLICK ', this.state);     
     }
-/*{this.executionMsg ? 
-                            <SnackbarResponse
-                                msg={this.executionMsg.msg}
-                                severity={this.executionMsg.severity}
-                            /> 
-                            : null
-                }*/
+    
     render(){  
-        /*if (this.refreshComponent){
-            ReactDOM.unmountComponentAtNode(document.getElementById('hcaptchaContainer'));
-          } */
+            console.log("RENDER ", this.state);
+            console.log("RENDER Cont ", this.executionMsg);
             return <div className='Contact ContentWithSmallMargin col-lg-6'> 
                 {this.state.execute ?  
                     <ModalAsyncWait 

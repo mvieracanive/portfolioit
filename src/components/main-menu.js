@@ -3,13 +3,18 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import Book from '@material-ui/icons/Book';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { withStyles } from '@material-ui/core/styles';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { VerticalDivider } from "./utils/vertical-divider.component";
+import DeleteIcon from '@material-ui/icons/Delete';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import EmailIcon from '@material-ui/icons/Email';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import BookIcon from '@material-ui/icons/Book';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
@@ -45,12 +50,13 @@ export class MainMenu extends React.Component {
         anchorHome: null,
         anchorOther: null,
         anchorAbout: null,
-        anchorContact: null
+        anchorContact: null,
       };
       // This binding is necessary to make `this` work in the callback    
       this.handleClick = this.handleClick.bind(this);
       this.handleClose = this.handleClose.bind(this);
       this.setAnchorEl = this.setAnchor.bind(this);
+      this.handleOnResize = this.handleOnResize.bind(this);
     }
 
     setAnchor(anchor, value){
@@ -73,6 +79,9 @@ export class MainMenu extends React.Component {
       }       
     }
   
+    handleOnResize(e){
+      console.log(window.innerWidth)
+    }
     handleClick(target, event) {
       this.setAnchor(target, event.currentTarget);
     };
@@ -85,34 +94,40 @@ export class MainMenu extends React.Component {
       return <nav className = "MainMenu">    
           <MainMenuAccess 
             handleClick={this.handleClick.bind(this, 'home')}
-            text='EXAMPLES'  
+            text='EXAMPLES' 
+            contentid='home' 
           />
           <VerticalDivider />
           <MainMenuAccess 
             handleClick={this.handleClick.bind(this, 'about')}
             text='ABOUT ME'  
+            contentid='about'
           />
           <VerticalDivider  />
           <MainMenuAccess 
             handleClick={this.handleClick.bind(this, 'contact')}
             text='CONTACT ME'  
+            contentid='contact'
           />
           <VerticalDivider/>
           <MainMenuAccess 
             handleClick={()=>window.open('https://github.com/mvieracanive', '_blank')}
             text='GITHUB'  
+            contentid='github'
           />
           <ArrowRightIcon />
           <VerticalDivider/>
           <MainMenuAccess 
             handleClick={()=>window.open('https://www.linkedin.com/in/maia-viera-ca%C3%B1ive/', '_blank')}
             text='LINKEDIN'  
+            contentid='linkedin'
           />
           <ArrowRightIcon />
           <VerticalDivider/>
           <MainMenuAccess 
             handleClick={()=>window.open('https://maiavieracanive.medium.com', '_blank')}
-            text='BLOG'  
+            text='BLOG'
+            contentid='blog'
           />
           <ArrowRightIcon />
           
@@ -120,11 +135,13 @@ export class MainMenu extends React.Component {
       </nav>;
     }
     
-    componentDidMount() {  }
+    componentDidMount() { 
+      window.addEventListener("resize", this.handleOnResize);
+    }
     componentWillUnmount() {  }
 }
 
-function MainMenuAccess(props) {
+function MainMenuItem(props) {  
   return (
     <div 
       className='MainMenuAccess' 
@@ -133,6 +150,30 @@ function MainMenuAccess(props) {
       onClick={props.handleClick}>
       {props.text}
     </div>
+  );
+  return (
+    <div className='MobileMenuAccess' 
+      aria-controls="contact-menu" 
+      aria-haspopup="false"
+      onClick={props.handleClick}>
+    <Tooltip title={props.text}>
+      <IconButton aria-label="props.text">
+        {props.contentid == 'home' ? <HomeIcon fontSize="small" /> : null}
+        {props.contentid == 'about' ? <PersonIcon fontSize="small" /> : null}
+        {props.contentid == 'contact' ? <EmailIcon fontSize="small" /> : null}
+        {props.contentid == 'github' ? <GitHubIcon fontSize="small" /> : null}
+        {props.contentid == 'linkedin' ? <LinkedInIcon fontSize="small" /> : null}
+        {props.contentid == 'blog' ? <BookIcon fontSize="small" /> : null}
+      </IconButton>
+    </Tooltip>
+    </div>
+  );
+}
+
+function MainMenuAccess(props) {
+  return (
+    
+    <MainMenuItem {...props} />
   );
 }
 
@@ -180,7 +221,7 @@ function MaterialUIMenuStyle(){
             </MenuItem>
             <MenuItem onClick={this.handleClose.bind(this, 'other')}>
               <ListItemIcon>
-                <Book fontSize="small" />
+                <BookIcon fontSize="small" />
               </ListItemIcon>
               <a 
                 href={'https://maiavieracanive.medium.com'} 
