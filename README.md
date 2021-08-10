@@ -6,9 +6,9 @@ Portfolio Website builds-in featrures to add content for job examples, informati
 
 ## How to add content for feature "About Me"
 
-Inside folder _src/content_ there is a folder _about_; all information regarding the professional must be placed there. The content that must be provided include: - A profile image - A folder with all images of postgraduate qualifications - An _index.js_ file
+Inside folder _src/content/about_ is found all information that would detail who is the professional and its studies. The content that must be provided include - A profile image - A folder with all images of postgraduate qualifications - An _index.js_ file
 
-The _index.js_ file exports all the information in variables _aboutText_, _photoProfile_, _certificates_. _Certificates_ in an array of objects for the image of qualification and the title of the qualification.
+The _index.js_ file exports all the information in variables _aboutText_, _photoProfile_, _certificates_. _Certificates_ in an array of objects for the certificate image and a title for such image, indicating what is the certification about.
 
 <code>
 import about from './about.txt';

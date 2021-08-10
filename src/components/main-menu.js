@@ -97,38 +97,45 @@ export class MainMenu extends React.Component {
             text='EXAMPLES' 
             contentid='home' 
           />
-          <VerticalDivider />
+          <VerticalDivider margin='8px' />
           <MainMenuAccess 
             handleClick={this.handleClick.bind(this, 'about')}
             text='ABOUT ME'  
             contentid='about'
           />
-          <VerticalDivider  />
+          <VerticalDivider margin='8px' />
           <MainMenuAccess 
             handleClick={this.handleClick.bind(this, 'contact')}
             text='CONTACT ME'  
             contentid='contact'
           />
-          <VerticalDivider/>
+          <VerticalDivider margin='8px'/>
           <MainMenuAccess 
             handleClick={()=>window.open('https://github.com/mvieracanive', '_blank')}
             text='GITHUB'  
             contentid='github'
           />
           <ArrowRightIcon />
-          <VerticalDivider/>
+          <VerticalDivider margin='8px'/>
           <MainMenuAccess 
             handleClick={()=>window.open('https://www.linkedin.com/in/maia-viera-ca%C3%B1ive/', '_blank')}
             text='LINKEDIN'  
             contentid='linkedin'
           />
           <ArrowRightIcon />
-          <VerticalDivider/>
+          <VerticalDivider margin='8px'/>
+          <MainMenuAccess 
+            handleClick={()=>window.open('https://www.npmjs.com/~mvieracanive', '_blank')}
+            text='NPM'  
+            contentid='npm'
+          />
+          <ArrowRightIcon />
+          <VerticalDivider margin='8px'/>
           <MainMenuAccess 
             handleClick={()=>window.open('https://maiavieracanive.medium.com', '_blank')}
             text='BLOG'
             contentid='blog'
-          />
+          />          
           <ArrowRightIcon />
           
           
@@ -168,6 +175,8 @@ function MainMenuItem(props) {
     </Tooltip>
     </div>
   );
+  /*NPM ico
+  <svg viewBox="0 0 27.23 27.23"><rect fill="#333333" width="27.23" height="27.23" rx="2"></rect><polygon fill="#fff" points="5.8 21.75 13.66 21.75 13.67 9.98 17.59 9.98 17.58 21.76 21.51 21.76 21.52 6.06 5.82 6.04 5.8 21.75"></polygon></svg>*/
 }
 
 function MainMenuAccess(props) {
