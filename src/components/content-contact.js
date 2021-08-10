@@ -106,7 +106,7 @@ export class Contact extends React.Component{
         if (needCaptcha){
             this.setState({captchaNeeded: 'Please I need you to tell me you are not a bot.'});
         }
-        valid = valid && true;//!needCaptcha;
+        valid = valid && !needCaptcha;
         console.log('1 HANDLE CLICK ', this.state);
         if (!valid){
             this.setState({forceValidation: true});
@@ -174,6 +174,10 @@ export class Contact extends React.Component{
                                     handle: 'isEmpty',
                                     errorMsg: 'Field is mandatory',
                                     not: true
+                                },
+                                {
+                                    handle: 'isEmail',
+                                    errorMsg: 'Invalid email'
                                 }
                             ]}
                             componentId={1}

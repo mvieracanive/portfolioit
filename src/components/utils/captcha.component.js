@@ -94,7 +94,6 @@ class HCaptchaRefresh extends React.Component{
   shouldComponentUpdate(nextprops, nextstate){
     if (this.hcaptcha && nextprops.refresh)
       this.hcaptcha.current.resetCaptcha();
-    //console.log("houldcomponentUpdate Hcaptcha", this.hcaptcha);
     return true;
   }
 }
