@@ -1,10 +1,30 @@
-# Getting Started with Create React App
+# Protfolio Website for software developers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Protfolio Website is developed using [Create React App](https://github.com/facebook/create-react-app). It can be used to set a web portfolio for any software developer.
 
-## Available Scripts
+Portfolio Website builds-in featrures to add content for job examples, information about professional, send an email for contact, links to GitHub, Blog, NPM and LinkedIn.
 
-In the project directory, you can run:
+## How to add content for feature "About Me"
+
+Inside folder _src/content_ there is a folder _about_; all information regarding the professional must be placed there. The content that must be provided include: - A profile image - A folder with all images of postgraduate qualifications - An _index.js_ file
+
+The _index.js_ file exports all the information in variables _aboutText_, _photoProfile_, _certificates_. _Certificates_ in an array of objects for the image of qualification and the title of the qualification.
+
+<code>
+import about from './about.txt';
+import photo from './imgPerfil.jpg';
+import cert00 from './certificates/cert00.JPG';
+
+export const aboutText = about;
+export const photoProfile = photo;
+
+export const certificates = [
+{
+title: "Software Quality Manegement",
+cert: cert00
+},
+]
+</code>
 
 ### `npm start`
 
