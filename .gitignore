@@ -7,6 +7,12 @@
 
 # configurations
 /src/env.js
+# content
+/src/content/about/certificates/*
+/src/content/about/about.txt
+/src/content/about/imgPerfil*
+/src/content/codes/code*
+/src/content/images/img*
 
 # testing
 /coverage

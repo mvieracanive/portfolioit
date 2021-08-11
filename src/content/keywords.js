@@ -13,6 +13,9 @@ export const keywords = {
     Mapbox: 'Mapbox',
     Leaflet: 'Leaflet',
     PHP: 'PHP',
+    MySql: 'MySQL',
+    Javascript: 'Javascript',
+    Typescript: 'Typescript',
 };
 
 export function getKeywords(){
@@ -64,7 +67,11 @@ export function getKeywords(){
         {
             keyword: keywords.PHP,
             ico: "https://image.flaticon.com/icons/png/512/919/919830.png",
-        }
+        },
+        {
+            keyword: keywords.MySql,
+            //ico: "https://img.icons8.com/ios/50/000000/java-coffee-cup-logo--v1.png",
+        },
     ]
 }
 
