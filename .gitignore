@@ -8,11 +8,7 @@
 # configurations
 /src/env.js
 # content
-/src/content/about/certificates/*
-/src/content/about/about.txt
-/src/content/about/imgPerfil*
-/src/content/examples/codes/code*
-/src/content/examples/images/img*
+/src/content/*
 
 # testing
 /coverage
