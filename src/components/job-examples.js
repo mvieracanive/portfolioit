@@ -7,11 +7,8 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { codes } from '../content/codes/index';
-import { images } from '../content/images/index';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import PublicIcon from '@material-ui/icons/Public';
-import Icon from '@material-ui/core/Icon';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
 export class Examples extends React.Component {
@@ -57,10 +54,9 @@ class Example extends React.Component {
               <AccordionDetails>
                 <Typography>
                   <div>
-
                     <Text ex = {this.props.example} />
                     <Code code={this.state.code} />
-                    <Image img={this.state.image} />
+                    <Image ex={this.props.example} />
                     <Links ex = {this.props.example} />                    
                     <Keyword ex = {this.props.example} />
                   </div>
@@ -76,23 +72,13 @@ class Example extends React.Component {
     componentDidMount(){
       if (this.props.example.code != undefined){
         const fetchCode = async () => {        
-          const response = await fetch(codes[this.props.example.code]);  
+          const response = await fetch(this.props.example.code);  
           const code = await response.text();  
           this.setState({code: code});
     
-        };
-    
+        };    
         fetchCode();
-      }
-          
-      if (this.props.example.img != undefined){
-        const fetchImage = async () => {          
-          const image = images[this.props.example.img];  
-          this.setState({image: image});    
-        };
-    
-        fetchImage();
-      }
+      }          
     }
 }
 
@@ -159,9 +145,9 @@ function Links(props){
     </div>
 }
 function Image(props){
-  if (!props.img)
+  if (!props.ex.img)
     return null;
   return <div className='ImageExample'>
-      <img src={props.img} width = '80%' ></img>
+      <img src={props.ex.img} width = '80%' ></img>
     </div>
 }

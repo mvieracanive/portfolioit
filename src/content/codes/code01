@@ -1,6 +1,0 @@
-export function isKeywordSelected(keywords, selection, keyword){
-    for (let i = 0; i < keywords.length; i++){
-        if (keywords[i] == keyword)
-        treturn selection[i];
-        }
-}
