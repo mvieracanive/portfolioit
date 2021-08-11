@@ -8,7 +8,8 @@
 # configurations
 /src/env.js
 # content
-/src/content/*
+/src/content/about/*
+/src/content/examples/*
 
 # testing
 /coverage
