@@ -64,7 +64,7 @@ export class About extends React.Component{
             image.addEventListener('transitionend', function() {
                 this.style.zIndex = "auto";
                 const rect = this.getBoundingClientRect();
-                const flag = rect.width != 32;
+                const flag = rect.width >= 70;
                 flag ? this.style.zIndex = "1000" : this.style.zIndex = "auto";
                 /*const zindex = this.style.zIndex;
                 let a = zindex + 1;*/
