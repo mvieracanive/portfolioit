@@ -1,8 +1,6 @@
 import React from 'react';
-import {KeywordTree} from './keyword-tree.js';
-import {keywordSorted} from '../content/keywords';
+import { keywordSorted } from '../content/keywords';
 import { Examples } from './job-examples.js';
-import { KeywordTreeDrawer } from './keyword-tree-drawer.js';
 import { KeywordBanner } from './keywords-banner.js';
 
 export class JobExamplesContainer extends React.Component {

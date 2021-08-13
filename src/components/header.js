@@ -3,7 +3,8 @@ import React from 'react';
 export class Header extends React.Component{
 
     render(){
-        return <header>
+        const cls = this.props.mobile ? 'Smaller' : null
+        return <header className={cls}>
             <div className="InlineFlexContainer">
                 <div className="Logo">
                     <div className="Portfolio">

@@ -1,10 +1,9 @@
-import React from "react";
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import SearchSharp from '@material-ui/icons/SearchSharp';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import {KeywordTree} from './keyword-tree.js';
+import SearchSharp from '@material-ui/icons/SearchSharp';
+import React from "react";
+import { KeywordTree } from './keyword-tree.js';
 
 export class KeywordTreeDrawer extends React.Component {
     constructor(props){

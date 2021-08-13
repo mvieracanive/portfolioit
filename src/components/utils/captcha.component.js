@@ -1,10 +1,7 @@
-import React from "react";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
-import { makeStyles } from '@material-ui/core/styles';
-import Popover from '@material-ui/core/Popover';
 import { FormControl, FormHelperText } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
-import ReactDOM from 'react-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
 
 export class CaptchaFormControl extends React.Component {
     render(){
@@ -84,8 +81,7 @@ class HCaptchaRefresh extends React.Component{
     super(props);
     this.hcaptcha = React.createRef();
   }
-  render(){
-    const flag = this.props.refresh;
+  render(){    
     return <HCaptcha 
         ref={this.hcaptcha} 
         {...this.props}

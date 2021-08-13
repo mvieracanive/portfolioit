@@ -15,9 +15,10 @@ export class Examples extends React.Component {
     
   render() {
     const res = [];
+    let i = 0;
     Exs.forEach(element => {
       res.push(
-        <Example
+        <Example key={i++}
           selectedKeywords = {this.props.selectedKeywords}
           keywords = {this.props.keywords}
           example = {element}
@@ -52,15 +53,15 @@ class Example extends React.Component {
                 <TypographyTheme className='HeadingExample' component='h4' variant='h4' >{this.props.example.heading}</TypographyTheme>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  <div>
+                <div>
+                  
                     <Text ex = {this.props.example} />
                     <Code code={this.state.code} />
                     <Image ex={this.props.example} />
                     <Links ex = {this.props.example} />                    
                     <Keyword ex = {this.props.example} />
-                  </div>
-                </Typography>
+                  
+                </div>
               </AccordionDetails>
             </Accordion>;
           
@@ -122,7 +123,7 @@ function Sandbox(props){
     return null;
   return <div className='WebsiteExample'>
       <svg style={{ color: 'inherit', width: '23px', height: '23px' }}
-        enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+        enableBackground="new 0 0 24 24" viewBox="0 0 24 24">
           <path fill="#fd6107" d="M22.5,17.95L22.41,6L11.955,0L1.5,6v12l10.455,6L22.5,17.95z M20.327,13.239L16.982,15.1v3.514L13.01,20.91v-8.272l7.317-4.157V13.239z M10.905,20.91l-3.972-2.296v-3.516l-3.345-1.86V8.481l7.317,4.157V20.91z M4.634,6.601L4.633,6.6l3.913-2.255l3.43,1.968l3.41-1.945l3.871,2.197l-7.32,4.18L4.634,6.601z"/></svg>
       <span> </span>
       <a href={props.ex.sandbox}>{props.ex.sandboxtitle}</a>
@@ -148,6 +149,6 @@ function Image(props){
   if (!props.ex.img)
     return null;
   return <div className='ImageExample'>
-      <img src={props.ex.img} width = '80%' ></img>
+      <img alt="Example image" src={props.ex.img} width = '80%' ></img>
     </div>
 }

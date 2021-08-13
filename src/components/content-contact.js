@@ -1,14 +1,13 @@
-import React from "react";
-import emailjs from 'emailjs-com';
-import env from '../env';
-import { TextFieldValidator } from "./utils/input-text.component";
-import { CaptchaFormControl } from "./utils/captcha.component";
 import Button from '@material-ui/core/Button';
-import SendIcon from '@material-ui/icons/Send';
 import { withStyles } from '@material-ui/core/styles';
+import SendIcon from '@material-ui/icons/Send';
+import emailjs from 'emailjs-com';
+import React from "react";
+import env from '../env';
+import { CaptchaFormControl } from "./utils/captcha.component";
+import { TextFieldValidator } from "./utils/input-text.component";
 import { ModalAsyncWait } from "./utils/modal-wait.component";
-import {SnackbarResponse} from './utils/snackbar-response.component';
-import ReactDOM from 'react-dom';
+import { SnackbarResponse } from './utils/snackbar-response.component';
 
 export class Contact extends React.Component{
     constructor(props){
@@ -80,7 +79,7 @@ export class Contact extends React.Component{
 
     async handleSendEmail(service, template, form, user, sender){
         try{
-            const response = await emailjs.sendForm(service, template, form, user);
+            /*const response =*/ await emailjs.sendForm(service, template, form, user);
             return {
                 msg: `SUCCESS! Thanks for your message${sender ? ' ' + sender : ''}. I will answer as soon as possible.`,
                 severity: 'success'
@@ -107,22 +106,16 @@ export class Contact extends React.Component{
             this.setState({captchaNeeded: 'Please I need you to tell me you are not a bot.'});
         }
         valid = valid && !needCaptcha;
-        console.log('1 HANDLE CLICK ', this.state);
         if (!valid){
             this.setState({forceValidation: true});
             return;
         }
-        console.log('2 HANDLE CLICK ', this.state);
-        console.log('paso validacion de captcha')
         if (valid){
             this.setState({execute: true});
-        }     
-        console.log('END HANDLE CLICK ', this.state);     
+        }       
     }
     
     render(){  
-            console.log("RENDER ", this.state);
-            console.log("RENDER Cont ", this.executionMsg);
             return <div className='Contact ContentWithSmallMargin col-lg-6'> 
                 {this.state.execute ?  
                     <ModalAsyncWait 

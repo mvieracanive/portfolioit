@@ -1,7 +1,6 @@
 import React from 'react';
 import { About } from './content-about';
 import { Contact } from './content-contact';
-import { ModalAsyncWait } from './utils/modal-wait.component';
 import { JobExamplesContainer } from './content-examples';
 import { ShowResponse } from './utils/response.component';
 

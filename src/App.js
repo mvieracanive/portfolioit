@@ -1,6 +1,5 @@
-import logo from './logo.svg';
-import './sass/App.scss';
 import { Template } from './components/template';
+import './sass/App.scss';
 
 function App() {
   return (

@@ -1,8 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { PlayCircleFilledWhite } from '@material-ui/icons';
+import Modal from '@material-ui/core/Modal';
+import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 
 export class ModalAsyncWait extends React.Component{
   constructor(props){

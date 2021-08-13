@@ -1,7 +1,6 @@
-import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import { ThreeSixtySharp, TimerSharp } from '@material-ui/icons';
+import React from 'react';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;

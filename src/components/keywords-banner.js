@@ -1,10 +1,7 @@
 import React from "react";
-import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
-import * as keys from '../content/keywords';
-import { VerticalDivider } from "./utils/vertical-divider.component";
-import { TimerSharp } from "@material-ui/icons";
 import leftDoubleArrowIco from '../images/double_left_icon.svg';
 import rightDoubleArrowIco from '../images/double_right_icon.svg';
+import { VerticalDivider } from "./utils/vertical-divider.component";
 
 export class KeywordBanner extends React.Component{
     constructor(props){
@@ -137,22 +134,22 @@ class KeywordComponent extends React.Component {
   function OffsetControl(props){
       if (props.type == 'right' && props.state){
           return <div className='KeywordBannerSliders' onClick={props.handle}> 
-                <img src={rightDoubleArrowIco} />
+                <img alt="Right offseting control" src={rightDoubleArrowIco} />
             </div>
       }
       if (props.type == 'right' && !props.state){
         return <div className='KeywordBannerSliders HideElement'>
-                <img src={rightDoubleArrowIco} />
+                <img alt="Right offseting control" src={rightDoubleArrowIco} />
             </div>
       }
       if (props.type == 'left' && props.state){
         return <div className='KeywordBannerSliders' onClick={props.handle}>
-                <img src={leftDoubleArrowIco} />
+                <img alt="Left offseting control" src={leftDoubleArrowIco} />
             </div>
       }
       if (props.type == 'left' && !props.state){
         return <div className='KeywordBannerSliders HideElement'>
-                <img src={leftDoubleArrowIco} />
+                <img alt="Left offseting control" src={leftDoubleArrowIco} />
             </div>
       }
       return null

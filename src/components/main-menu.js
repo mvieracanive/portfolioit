@@ -1,46 +1,16 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { VerticalDivider } from "./utils/vertical-divider.component";
-import DeleteIcon from '@material-ui/icons/Delete';
-import HomeIcon from '@material-ui/icons/Home';
-import PersonIcon from '@material-ui/icons/Person';
+import BookIcon from '@material-ui/icons/Book';
 import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import BookIcon from '@material-ui/icons/Book';
+import HomeIcon from '@material-ui/icons/Home';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import Tooltip from '@material-ui/core/Tooltip';
+import PersonIcon from '@material-ui/icons/Person';
+import React from 'react';
+import { VerticalDivider } from "./utils/vertical-divider.component";
 
-import IconButton from '@material-ui/core/IconButton';
-import Divider from '@material-ui/core/Divider';
 
-const StyledMenu = withStyles({
-    paper: {
-      border: '0px solid #d3d4d5',
-      borderRadius: 3,
-      boxShadow: '0 3px 5px 2px rgba(105, 105, 135, .3)',
-      padding: '0 30px',
-    },
-  })((props) => (
-    <Menu
-      elevation={0}
-      getContentAnchorEl={null}
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'left',
-      }}
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'left',
-      }}
-      {...props}
-    />
-  ));
 
 export class MainMenu extends React.Component {
     constructor(props){
@@ -118,21 +88,21 @@ export class MainMenu extends React.Component {
           <ArrowRightIcon />
           <VerticalDivider margin='8px'/>
           <MainMenuAccess 
-            handleClick={()=>window.open('https://www.linkedin.com/in/maia-viera-ca%C3%B1ive/', '_blank')}
+            handleClick={()=>window.open('https://www.linkedin.com/in/maia-viera-ca%C3%B1ive/', '_blank', 'noreferrer')}
             text='LINKEDIN'  
             contentid='linkedin'
           />
           <ArrowRightIcon />
           <VerticalDivider margin='8px'/>
           <MainMenuAccess 
-            handleClick={()=>window.open('https://www.npmjs.com/~mvieracanive', '_blank')}
+            handleClick={()=>window.open('https://www.npmjs.com/~mvieracanive', '_blank', 'noreferrer')}
             text='NPM'  
             contentid='npm'
           />
           <ArrowRightIcon />
           <VerticalDivider margin='8px'/>
           <MainMenuAccess 
-            handleClick={()=>window.open('https://maiavieracanive.medium.com', '_blank')}
+            handleClick={()=>window.open('https://maiavieracanive.medium.com', '_blank', 'noreferrer')}
             text='BLOG'
             contentid='blog'
           />          
@@ -180,13 +150,35 @@ function MainMenuItem(props) {
 }
 
 function MainMenuAccess(props) {
-  return (
-    
+  return (    
     <MainMenuItem {...props} />
   );
 }
 
-function MaterialUIMenuStyle(){
+/*const StyledMenu = withStyles({
+    paper: {
+      border: '0px solid #d3d4d5',
+      borderRadius: 3,
+      boxShadow: '0 3px 5px 2px rgba(105, 105, 135, .3)',
+      padding: '0 30px',
+    },
+  })((props) => (
+    <Menu
+      elevation={0}
+      getContentAnchorEl={null}
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'left',
+      }}
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'left',
+      }}
+      {...props}
+    />
+  ));
+*/
+/*function MaterialUIMenuStyle(){
   return <React.Fragment>
     <Button fontSize={40} aria-controls="home-menu" aria-haspopup="false" onClick={this.handleClick.bind(this, 'home')}>
             Home
@@ -276,4 +268,4 @@ function MaterialUIMenuStyle(){
           >
           </Menu>
           </React.Fragment>;
-}
+}*/

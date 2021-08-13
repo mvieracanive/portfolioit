@@ -53,6 +53,7 @@ export class Template extends React.Component{
     }
 
     render(){
+        console.log(this.state.content_id, document.documentElement.scrollTop, window.pageYOffset)
         return <div>
                     <div id='banner' className={'Header Clearfix'}>
                         <MainMenu 
@@ -76,9 +77,9 @@ export class Template extends React.Component{
     }
 
     shouldComponentUpdate(nextprops, nextstate){
-        if (this.state.content_id != 'home')
+        if (this.state.content_id != nextstate.content_id)
             document.documentElement.scrollTop = 0;
-        //window.removeEventListener("scroll", this.funOnScroll, true)
+           
         return true;
     }
     componentDidUpdate(props, state){
