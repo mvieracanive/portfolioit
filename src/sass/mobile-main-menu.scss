@@ -1,0 +1,17 @@
+@import "./vars";
+.MobileMainMenu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $nav_height;
+  background-color: $color_second_banner;
+  display: flex;
+  padding: 12px;
+  box-shadow: 0 3px 4px 0 rgba(255, 255, 255, 0.4%);
+}
+
+.MobileMenuAccess {
+  display: inline;
+  margin-left: 3px;
+  cursor: pointer;
+}
