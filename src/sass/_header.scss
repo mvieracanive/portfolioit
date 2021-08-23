@@ -77,6 +77,26 @@ header {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .Logo {
+    font-size: 25pt;
+    .Portfolio {
+      h1 {
+        font-size: 25pt;
+        line-height: 2.5em;
+        padding: 0 0.5em 0 0.7em;
+      }
+    }
+    .Name {
+      h2 {
+        font-size: 17pt;
+        line-height: 1.6em;
+        padding: 0 0.7em 0 0.5em;
+      }
+    }
+  }
+}
+
 .Smaller > header .Logo {
   font-size: 22pt;
   height: $header_small_height;

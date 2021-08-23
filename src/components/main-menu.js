@@ -61,6 +61,7 @@ export class MainMenu extends React.Component {
     }
 
     render() {
+      console.log(window.innerWidth);
       return <nav className = "MainMenu">    
           <MainMenuAccess 
             handleClick={this.handleClick.bind(this, 'home')}
