@@ -1,6 +1,7 @@
 import React from "react";
 import leftDoubleArrowIco from '../images/double_left_icon.svg';
 import rightDoubleArrowIco from '../images/double_right_icon.svg';
+import { SlideEvent } from "./utils/slide-event";
 import { VerticalDivider } from "./utils/vertical-divider.component";
 
 export class KeywordBanner extends React.Component{
@@ -10,6 +11,7 @@ export class KeywordBanner extends React.Component{
         this.coordinates = [];  
         this.right = null;
         this.left = null;
+        this.touchSurfaceID = 'keysTouchBanner';
 
         this.state={
             firstVisible: 0,
@@ -23,6 +25,26 @@ export class KeywordBanner extends React.Component{
         this.handleMoveLeft = this.handleMoveLeft.bind(this);
         this.isLastVisible = this.isLastVisible.bind(this);
         this.isFirstVisible = this.isFirstVisible.bind(this);
+        this.handleOnResize = this.handleOnResize.bind(this);
+        this.handleMoveByTouch = this.handleMoveByTouch.bind(this);
+    }
+
+    handleOnResize(e){        
+        const itemsContainer = document.querySelector('.KeywordBannerItems');
+        const rect = itemsContainer.getBoundingClientRect();
+
+        this.right = rect.right;
+        this.left = rect.left;
+        
+        if (this.isLastVisible())
+            this.setState({controlLeft: false});
+        else
+            this.setState({controlLeft: true});
+        
+        if (this.isFirstVisible())
+            this.setState({controlRight: false});
+        else
+            this.setState({controlRight: true});
     }
 
     handleMoveRight(e){
@@ -42,6 +64,20 @@ export class KeywordBanner extends React.Component{
         if (!this.state.controlRight)
             this.setState({controlRight: true});               
     }
+    handleMoveByTouch(dist){ 
+        const itemsContainer = document.querySelector('.KeywordBannerItems');
+        itemsContainer.scrollLeft = itemsContainer.scrollLeft + dist;
+
+        const fv = this.isFirstVisible();
+        const lv = this.isLastVisible();
+
+        if (fv){this.setState({controlRight: false}); }            
+        if (!this.state.controlLeft){this.setState({controlLeft: true}); }
+        
+        if (lv){this.setState({controlLeft: false}); }            
+        if (!this.state.controlRight && !fv){this.setState({controlRight: true}); } 
+            
+    }    
 
     handleInformVisibility(index, left, right){
         this.coordinates[index] = {left: left, right: right};  
@@ -84,7 +120,7 @@ export class KeywordBanner extends React.Component{
         return <div id='keywordsBanner' className='KeywordBanner'> 
               
                 <OffsetControl type='left' state={this.state.controlRight} handle={this.handleMoveRight}/>      
-                <div className='KeywordBannerItems'>
+                <div id={this.touchSurfaceID} className='KeywordBannerItems'>
                     {items} 
                 </div>
                 <OffsetControl type='right' state={this.state.controlLeft} handle={this.handleMoveLeft}/>
@@ -93,6 +129,7 @@ export class KeywordBanner extends React.Component{
     }
 
     componentDidMount(){
+        window.addEventListener("resize", this.handleOnResize);
         const itemsContainer = document.querySelector('.KeywordBannerItems');
         const rect = itemsContainer.getBoundingClientRect();
 
@@ -100,6 +137,8 @@ export class KeywordBanner extends React.Component{
         this.left = rect.left;
         if (this.isLastVisible())
             this.setState({controlLeft: false});
+        
+        this.slideEvent = new SlideEvent(this.touchSurfaceID, null, null, this.handleMoveByTouch);
     }
 }
 

@@ -13,21 +13,7 @@ export class CaptchaFormControl extends React.Component {
                                 refresh={this.props.refresh}
                             />
                 </div>;
-    }
-
-    shouldComponentUpdate(nextprops, nextstate){
-      /*if(nextprops.refresh)
-        ReactDOM.render(
-          <Captcha id='captcha-error'
-                                sitekey={this.props.sitekey}
-                                onVerify={this.props.onVerify}
-                                error={this.props.error}
-                                refresh={this.props.refresh}
-                            />, 
-          document.getElementById("formcontrolcaptcha")
-        );*/
-      return true;
-    }
+    }    
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -51,13 +37,21 @@ const useStyles = makeStyles((theme) => ({
     CaptchaError: {
         width: '100%',
         margin: '8px',
+        marginTop: 26,
+        marginBottom: 0,
         borderBottom: '2px solid red',
         padding: 0,
-        paddingLeft: '16px'
+        //paddingLeft: '16px'
+    },
+    HelperTextCls: {
+      //margin: 0,
+      paddingLeft: '9px',
+      marginBottom: 8,
     },
     CaptchaNormal: {
-        width: '100%',
-        margin: '8px',
+        width: '100%',        
+        margin: '8px', 
+        marginTop: 26,       
     }
   }));
 
@@ -72,7 +66,7 @@ function Captcha(props){
                         refresh={props.refresh}
                       />                                          
                 </div> 
-                {props.error ? <FormHelperText id="my-helper-text">{props.error}</FormHelperText> : null}
+                {props.error ? <FormHelperText className={classes.HelperTextCls} id="my-helper-text">{props.error}</FormHelperText> : null}
             </FormControl>;
 }
 

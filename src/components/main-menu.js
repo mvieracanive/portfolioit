@@ -11,7 +11,7 @@ export class MainMenu extends React.Component {
         this.handleOnResize = this.handleOnResize.bind(this);
     }
     handleOnResize(e){
-        console.log(window.innerWidth);
+        //console.log(window.innerWidth);
         if (window.innerWidth < this.brk && this.state.viewport >= this.brk)
             this.setState({viewport: window.innerWidth});
         else if (window.innerWidth > this.brk && this.state.viewport <= this.brk)

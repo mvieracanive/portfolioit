@@ -27,16 +27,23 @@ export class JobExamplesContainer extends React.Component {
     }
 
     render() {
+      let voidEx = null;
+      if (this.state.selection.indexOf(true)<0){
+        voidEx = <p style=
+          {{fontStyle: 'italic', color: 'red'}}>
+            Please, choose a keyword in upper banner to see some examples</p>;
+      }
       return <React.Fragment>
           <KeywordBanner 
               selection = {this.state.selection}
               keywords = {this.keywords}
-             onKeywordSelect = {this.funOnKeywordSelect}/>
+              onKeywordSelect = {this.funOnKeywordSelect}/>
              
         <div className = "ExamplesContainer row ContentWithMargin">  
           <div className='col-md-1'>
           </div>
           <div className='col-md-10'>
+            {voidEx}
             <Examples className="Examples"
               selectedKeywords = {this.state.selection}
               keywords = {this.keywords}           

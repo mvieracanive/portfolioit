@@ -28,7 +28,6 @@ export class MobileMainMenu extends React.Component {
       this.handleClick = this.handleClick.bind(this);
       this.handleClose = this.handleClose.bind(this);
       this.setAnchorEl = this.setAnchor.bind(this);
-      this.handleOnResize = this.handleOnResize.bind(this);
     }
 
     setAnchor(anchor, value){
@@ -51,9 +50,6 @@ export class MobileMainMenu extends React.Component {
       }       
     }
   
-    handleOnResize(e){
-      console.log(window.innerWidth)
-    }
     handleClick(target, event) {
       this.setAnchor(target, event.currentTarget);
     };
@@ -112,9 +108,6 @@ export class MobileMainMenu extends React.Component {
       </nav>;
     }
     
-    componentDidMount() { 
-      window.addEventListener("resize", this.handleOnResize);
-    }
     componentWillUnmount() {  }
 }
 
