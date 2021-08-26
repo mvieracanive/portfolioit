@@ -53,7 +53,6 @@ export class Template extends React.Component{
     }
 
     render(){
-        console.log(this.state.content_id, document.documentElement.scrollTop, window.pageYOffset)
         return <div>
                     <div id='banner' className={'Header Clearfix'}>
                         <MainMenu 

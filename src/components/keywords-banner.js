@@ -31,6 +31,8 @@ export class KeywordBanner extends React.Component{
 
     handleOnResize(e){        
         const itemsContainer = document.querySelector('.KeywordBannerItems');
+        if (!itemsContainer)
+            return;
         const rect = itemsContainer.getBoundingClientRect();
 
         this.right = rect.right;
