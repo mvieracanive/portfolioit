@@ -8,7 +8,6 @@ export class KeywordBanner extends React.Component{
     constructor(props){
         super(props);
 
-        this.coordinates = [];  
         this.right = null;
         this.left = null;
         this.touchSurfaceID = 'keysTouchBanner';
@@ -20,7 +19,6 @@ export class KeywordBanner extends React.Component{
         }
 
         // This binding is necessary to make `this` work in the callback    
-        this.handleInformVisibility = this.handleInformVisibility.bind(this);
         this.handleMoveRight = this.handleMoveRight.bind(this);
         this.handleMoveLeft = this.handleMoveLeft.bind(this);
         this.isLastVisible = this.isLastVisible.bind(this);
@@ -81,10 +79,6 @@ export class KeywordBanner extends React.Component{
             
     }    
 
-    handleInformVisibility(index, left, right){
-        this.coordinates[index] = {left: left, right: right};  
-    }
-
     isLastVisible(){
         const id = this.props.keywords.length-1;
         const item = document.querySelector('#keyID'+id.toString());
@@ -102,9 +96,7 @@ export class KeywordBanner extends React.Component{
 
     render(){   
         let items = [];
-        for (let i = this.state.firstVisible; i < this.props.keywords.length; i++){
-            if (i < this.state.firstVisible)
-                continue;
+        for (let i = 0; i < this.props.keywords.length; i++){
             items.push(<React.Fragment key={i}>
                 <KeywordComponent
                     selected= {this.props.selection[i]}

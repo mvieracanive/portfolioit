@@ -14,8 +14,21 @@ export const keywords = {
     Leaflet: 'Leaflet',
     PHP: 'PHP',
     MySql: 'MySQL',
-    Javascript: 'Javascript',
+    JavaScript: 'JavaScript',
     Typescript: 'Typescript',
+    CSS: 'CSS',
+    JQuery: 'JQuery',
+    SCSS: 'SCSS',
+    DevOps: 'DevOps',
+    IaaS: 'IaaS',
+    PM2: 'PM2',
+    Ubuntu: 'Ubuntu',
+    LetsEncrypt: 'LetsEncrypt',
+    OpenSSL: 'OpenSSL',
+    SSH: 'SSH',
+    Node: 'NodeJS',    
+    vsFTPd: 'vsftpd',
+    Express: 'Express'
 };
 
 export function getKeywords(){
@@ -70,6 +83,26 @@ export function getKeywords(){
         },
         {
             keyword: keywords.MySql,
+            //ico: "https://img.icons8.com/ios/50/000000/java-coffee-cup-logo--v1.png",
+        },
+        {
+            keyword: keywords.CSS,
+            //ico: "https://img.icons8.com/ios/50/000000/java-coffee-cup-logo--v1.png",
+        },
+        {
+            keyword: keywords.JQuery,
+            //ico: "https://img.icons8.com/ios/50/000000/java-coffee-cup-logo--v1.png",
+        },
+        {
+            keyword: keywords.SCSS,
+            //ico: "https://img.icons8.com/ios/50/000000/java-coffee-cup-logo--v1.png",
+        },
+        {
+            keyword: keywords.JavaScript,
+            //ico: "https://img.icons8.com/ios/50/000000/java-coffee-cup-logo--v1.png",
+        },
+        {
+            keyword: keywords.Node,
             //ico: "https://img.icons8.com/ios/50/000000/java-coffee-cup-logo--v1.png",
         },
     ]
